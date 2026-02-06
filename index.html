@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang=pl>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=icon type=image/png href="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAD4gAAA+IARbIpYYAAAAZdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuMTGKCBbOAAAAuGVYSWZJSSoACAAAAAUAGgEFAAEAAABKAAAAGwEFAAEAAABSAAAAKAEDAAEAAAACAAAAMQECABEAAABaAAAAaYcEAAEAAABsAAAAAAAAAGUAAAABAAAAZQAAAAEAAABQYWludC5ORVQgNS4xLjExAAADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlgAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAB1g1lrkERfoAAAA45JREFUSEutlM9LXFcUxz9v/EH/ABeunSQL/xHpKouBCW50UdwJuigpBS1dpMg0LhQsSk2MIZM4M0kkhBRBIepaqVbJYmhhZIK0k7bgjzcK8+a908V9c999d2ZUQg+X4c55536+59xz73VEBMOsv8qTSCQs5zUmguMA5HLI/25BEE5yOQFHpSwijuO4rpvP59VXlYrjOLVaLZ1O9/T0qBgrV9t07oUC9+6RTIYV+L4vIsVi0V4AwNHRkYgEOrV2pgMKBQG5dUs6OmICW1tbwOHhYa1WOzs7c13Xdd3z8/N6vW5yWpumv3wpIMmkdHaGm6OzW1xcBE5PT82FNzJNf/XKpEcCykZGRoaGhtRcZx0EwTWbo7++fm3RQwG1vlqtAplMZnNzc3BwcGBgYHJycnd316LZZtH7+qSrS9NjAqVSSbW0t7d3eno6k8mov9ls1mJGpumrqy3poYDq8MHBATA/P+95nlp1cnIyNjYG7O3t6bDIbkCP9cD3fdd19Vz1QJU1NTVlH9Ob0e0mK1Mg9XtxcdHf3z88PBxL/7p9N0f0yLiuW6lUfN+3rqvv+93d3ZFT39XVVVIp+vrk40fxvDDfZtPJzs3NAeVyWUQ8z1OdKJfLwMLCQhjWlHsQzz1oqiBq8s7ODjAzM6N3wvf9iYkJoFQqiUigd0ndpsbOXMIxHMNFK5lYD2ZnZ4Hx8fHt7e319fVUKgWsra3F6Pol6OoSWIMOYz/etKzAbOzGxkY6nVbRo6Oj+/v76nNIV69YMhl0dgr8AsB3UIQ/4EcAVuJFRBWYp7BarV5eXtr+fN6kV+ELGALfyPc+AP8aGvYxtW5T9DeXk8YLrFb+CcAyCNSgBgLvAPgdpCFsCygLHzid+8qKpuvUXAC+MtIXeADApysqiEzTX7ww6WqoxRsA/Ax/wSfIA5AzAtoLaPrz5yE9kTAz1etzxOynpoBWApqezQrI7dsWXY8lAGbgNziAhYZG23sgJv3Zs3Z01b0dAJbin94A8N4Iiwto+tOn7ei6/FkA/gaBOtRBnV3gayPYEND05eWQ7jjNdC3wAwCnhkfAgy9huEUPNP3Jk6vpunbV3g8Nj3JWAHhoqNKCfufOFXS9Ul20u1Bp+M/hGwCKDVUBIvrSUkhvIjYPpfEroY3Bt4256nDTFj1+fHO6qfEPvIUH8D0U4LgpjM+jq2Ge93ZO5NEj+Sy6GgH4EBgTK+A/Me+TmYATQzIAAAAASUVORK5CYII=">
+<title>Obrona Zatoki Gdańskiej 2025-2035</title>
+<meta name=author content="Sebastian Czaplinski + GROK 4 xAI + Gemini + Claude + DeepSeek ver.3.20260206">
+<style>
+#timeline div:nth-child(2n) {
+    background-color: rgba(255, 255, 255, .05);
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #000;
+    color: #0f0;
+    padding: 20px;
+}
+
+.panel {
+    max-width: 950px;
+    margin: auto;
+    background: #111;
+    padding: 30px;
+    border: 3px solid #333;
+    border-radius: 12px;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #0ff;
+}
+
+label {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.3em;
+}
+
+input[type=range] {
+    width: 100%;
+    height: 40px;
+}
+
+.val {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #ff0;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 1.6em;
+    background: #c00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background: red;
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+#timeline {
+    margin-top: 30px;
+    background: #001;
+    padding: 20px;
+    border-radius: 8px;
+    height: 720px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 1.15em;
+    line-height: 1.7;
+}
+
+.time {
+    color: #0ff;
+    font-weight: 700;
+}
+
+.intercept {
+    color: #0f0;
+}
+
+.hit {
+    color: #f66;
+    font-weight: 700;
+}
+
+.damaged {
+    color: #ff0;
+}
+
+.sunk {
+    color: #f33;
+    font-weight: 700;
+}
+
+.fuel {
+    color: #f90;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.system {
+    color: #0af;
+    font-style: italic;
+}
+
+.cap {
+    color: #0f8;
+    font-weight: 700;
+}
+
+.weather {
+    color: #8af;
+}
+
+.ew {
+    color: #f0f;
+    font-weight: 700;
+    background: #101;
+    padding: 2px 5px;
+    border-left: 3px solid #f0f;
+}
+
+.ew-rosja {
+    color: #ff7f7f;
+    background: #030034;
+    border-left-color: #f66;
+}
+
+.ew-polska {
+    color: #0ff;
+    background: #002020;
+    border-left-color: #0ff;
+}
+
+.stats {
+    font-size: 1.4em;
+    text-align: center;
+    margin: 20px;
+    padding: 15px;
+    background: #000;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.stats span {
+    color: #ff0;
+    font-weight: 700;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .95);
+    z-index: 100;
+    overflow: auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+#modal:target {
+    display: block;
+}
+
+.modal-content {
+    max-width: 900px;
+    margin: auto;
+    background: #111;
+    padding: 30px;
+    border: 4px solid #0ff;
+    border-radius: 12px;
+    color: #0f0;
+    line-height: 1.8;
+    font-size: 1.15em;
+}
+
+.close {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-size: 3em;
+    color: #0ff;
+    text-decoration: none;
+}
+
+.close:hover {
+    color: red;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .panel {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    
+    #timeline {
+        height: 500px;
+        font-size: 1em;
+    }
+    
+    .stats {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+    
+    .val {
+        font-size: 1.5em;
+    }
+}    
+</style>
+</head>
+<body>
+<audio id=endSound preload=auto>
+<source src="data:audio/aac;base64,AAAAGGZ0eXBtcDQyAAAAAGlzb21tcDQyAAAD9W1vb3YAAABsbXZoZAAAAADlSALU5UgC1AAAJxAAADD7AAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAADybWV0YQAAACFoZGxyAAAAAAAAAABtZHRhAAAAAAAAAAAAAAAAAAAAAGRrZXlzAAAAAAAAAAMAAAAbbWR0YWNvbS5hbmRyb2lkLnZlcnNpb24AAAAgbWR0YWNvbS5hbmRyb2lkLm1hbnVmYWN0dXJlcgAAABltZHRhY29tLmFuZHJvaWQubW9kZWwAAABlaWxzdAAAABoAAAABAAAAEmRhdGEAAAABAAAAADEzAAAAIAAAAAIAAAAYZGF0YQAAAAEAAAAAbW90b3JvbGEAAAAjAAAAAwAAABtkYXRhAAAAAQAAAABtb3RvIGc4MiA1RwAAAo90cmFrAAAAXHRraGQAAAAH5UgC1OVIAtQAAAABAAAAAAAAMPsAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAIrbWRpYQAAACBtZGhkAAAAAOVIAtTlSALUAACsRAAA2AAAAAAAAAAALGhkbHIAAAAAAAAAAHNvdW4AAAAAAAAAAAAAAABTb3VuZEhhbmRsZQAAAAHXbWluZgAAABBzbWhkAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAGbc3RibAAAAFtzdHNkAAAAAAAAAAEAAABLbXA0YQAAAAAAAAABAAAAAAAAAAAAAgAQAAAAAKxEAAAAAAAnZXNkcwAAAAADGQAAAAQRQBUAAwAAAXcAAAF3AAUCEhAGAQIAAAAYc3R0cwAAAAAAAAABAAAANgAABAAAAADsc3RzegAAAAAAAAAAAAAANgAAARYAAAEXAAABFgAAARcAAAEXAAABkwAAAYIAAAGRAAABdQAAAWAAAAE7AAABHAAAASUAAAEeAAABPAAAAQ4AAAEUAAABGwAAARAAAAEoAAABCgAAAQkAAAEYAAABEAAAATYAAAD8AAABgQAAAPsAAAD4AAABCwAAAQMAAAEEAAABEQAAAQkAAAEaAAABBAAAARcAAAEJAAABHgAAAQEAAAEWAAABFQAAARMAAAEkAAABFwAAARcAAAEbAAABHwAAARIAAAEWAAABFgAAAR0AAAD3AAABYAAAABxzdHNjAAAAAAAAAAEAAAABAAAANgAAAAEAAAAYY282NAAAAAAAAAABAAAAAAAADR4AAAkBZnJlZTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwAAAAAW1kYXQAAAAAAAA9LSERRQAUUAFG/+EKWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpeIRFFABRQAUb/8QpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpeIRFFABRQAUb/4QpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWl4hEUUAFFABRv/xClpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWl4hGgkT//d/+4WkVhQxdDlUAprRSV7xPIUn+IFI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" type=audio/aac>
+</audio>
+<div style=text-align:center;margin-bottom:20px>
+<a href=#modal><button class=btn-primary>OPIS / WSTĘP</button></a>
+</div>
+<div id=modal>
+<a href=# class=close>×</a>
+<div class=modal-content>
+<h1 style=text-align:center;color:#0ff>Obrona Zatoki Gdańskiej – stan na 20 listopada 2025</h1>
+<p><b>Publiczny symulator, oparty na podstawie 100 % jawnych danych pokazuje, co stanie się przy masowym ataku z Królewca.<br>
+    Symulacja ma charakter edukacyjny i zawiera uproszczenia.<br>
+    Nie zastępuje profesjonalnych analiz wojskowych.</b><br>
+<br>Symulator oferuje:</p>
+<ul>
+<li>5000 Shahedów - 136/238 (wybór typu lub proporcje losowe)</li>
+<li>500 Kalibrów / Oniksów / Iskanderów</li>
+<li>Symulacja AI przeciwnika</li>
+<li>Ataki i obrona elektroniczne</li>
+<li>Combat Log - chronologiczny przebieg bitwy, raporty</li>
+<li>Realistyczne zasoby rakiet (kończą się!)</li>
+<li>Możliwość utraty okrętów (w tym typu Miecznik)</li>
+<li>Czasy dolotu: <b>Kalibry 4–18 min, Shahedy 38–72 min</b></li>
+<li>Zasoby rakiet 2025–2035 zgodne z oficjalnym harmonogramem MON/PGZ</li>
+<li>Alokacja 50/50 Pomorze vs Wschód (Suwałki Gap)</li>
+<li>Lasery, F-35, Mieczniki – z realnymi datami wejścia i skutecznością</li>
+<li>Uwzględnienie dziury radarowej i zakłóceń GPS z Obwodu Królewieckiego</li>
+<li>Przeładowanie, załadowanie, obsługa aminucji</li>
+<li>Czynniki ludzkie: zmęczenie, morale, błędy</li>
+<li>Czynnik pogodowy: widoczność, wiatr, opady</li>
+</ul>
+<h2 style=color:#0ff>2025 – dramatyczna przewaga liczebna atakującego</h2>
+<ul>
+<li>3 baterie Patriot (Wisła) – 288 rakiet PAC-3 MSE</li>
+<li>3–4 pierwsze baterie Narew – ok. 180–250 rakiet CAMM-ER</li>
+<li>Pilica+ / Poprad / ~1500 rakiet Piorun</li>
+<li>Brak operacyjnych laserów</li>
+<li>Tylko 3 fregaty. ORP Ślązak + 2 OHP</li>
+<li>F-35 dopiero wchodzą – brak stałego CAP nad Bałtykiem</li>
+</ul>
+<h2 style=color:#0ff>2027–2028 – przełom</h2>
+<ul>
+<li>Pierwsze lasery operacyjne 50–100 kW (DragonFire + polskie)</li>
+<li>Narew: ~750–1000 rakiet</li>
+<li>Fabryka uzbrojenia w Rumi</li>
+<li>Pierwsza fregata Miecznik (F601 – ORP Wicher) w służbie od 2028</li>
+</ul>
+<h2 style=color:#0ff>2030 – system wielowarstwowy</h2>
+<ul>
+<li>23 baterie Narew – **1656 rakiet CAMM-ER**</li>
+<li>8–12 laserów 100–150 kW (ląd + okręty)</li>
+<li>Druga fregata Miecznik (F602)</li>
+<li>F-35: 32–48 szt. – reakcja 25–40 minut</li>
+</ul>
+<h2 style=color:#0ff>2035 – laserowa tarcza</h2>
+<ul>
+<li>Stały CAP 4–8 F-35 nad Bałtykiem</li>
+<li>Lasery</li>
+<li>Narew: ~2300 rakiet + rezerwy</li>
+<li>Patriot: 8 baterii – 768 rakiet PAC-3 MSE</li>
+<li>Trzecia fregata Miecznik (F603 – ORP Huragan)</li>
+</ul>
+<p style=text-align:center><a href=# style=color:#0ff;font-size:1.3em>Wróć do symulacji</a></p>
+</div>
+</div>
+<div class=panel>
+<h1>Obrona regionu<br>Zatoki Gdańskiej<br>2025–2035<br>.:symulacje:.</h1>
+<label>Rok:
+<select id=year>
+<option value=2025>2025 – początki dozbrajania</option>
+<option value=2027>2027 – pierwsze lasery</option>
+<option value=2028>2028 – pierwsze Mieczniki</option>
+<option value=2030>2030 – F-35</option>
+<option value=2035 selected>2035 – stały CAP</option>
+</select>
+</label>
+<label>Drony Shahed: <span class=val id=sVal>1000</span>
+<input type=range id=shaheds min=0 max=5000 value=1000>
+</label>
+<label>Typ: <select id=droneType>
+<option value=mixed selected>Mieszany</option>
+<option value=classic>Tylko 136</option>
+<option value=jet>Tylko 238 jet</option>
+</select></label>
+<label>Kalibr: <span class=val id=kVal>100</span>
+<input type=range id=kalibrs min=0 max=500 value=100>
+</label>
+<label style=margin-top:20px>
+<input type=checkbox id=aiRosja> Włącz AI Rosji + wabiki + EW
+</label>
+<label>
+<input type=checkbox id=kontratakNATO>Włącz kontratak NATO
+</label>
+<label>
+<input type=checkbox id=miotaczeKulek> Włącz -miotacze- kulek (od 2027)
+</label>
+<label>
+<input type=checkbox id=pogoda checked>
+Włącz warunki pogodowe
+</label>
+<label>
+<input type=checkbox id=ewWalka checked>Włącz Polską walkę elektroniczną (EW)</label>
+<div style="text-align:center;margin:30px 0">
+<button id=startBtn>START SYMULACJI</button>
+</div>
+<div class=stats>
+Wystrzelono: <span id=total>0</span><br>Zestrzelono: <span id=intercepted>0</span><br>
+Otrzymane trafienia: <span id=hits>0</span><br>Zatopione okręty: <span id=sunk>0</span>/7<br>
+Zbiorniki paliwa w Helu: <span id=fuelhit>całe</span><br>
+RTCN Chwaszczyno: <span id=rtcn>nieuszkodzony</span><br>
+Port Wojenny Gdynia: <span id=pmwgdynia>0</span><br>Rejon umocniony Hel: <span id=pmwhel>0</span><br>
+Rafineria Gdańsk: <span id=rafineria>0</span><br>DCT Gdańsk: <span id=dct>0</span><br>
+Lotnisko Gdańsk: <span id=lotnisko>0</span><br>Elektrociepłownia Gdańsk: <span id=elektro>0</span><br>
+34 BRT Władysławowo: <span id=rzucewo>0</span><br>49. Baza Lotnictwa Pruszcz: <span id=pruszcz>0</span><br>
+Port Północny Gdańsk: <span id=portpolnocny>0</span><br>Fabryka Amunicji Rumia: <span id=rumia>0</span><br><br>
+Patriot: <span id=zasobPatriot>?</span> | Narew: <span id=zasobNarew>?</span> | Piorun/WOT: <span id=zasobPiorun>?</span>
+</div>
+<div id=timeline>Wybierz parametry i kliknij START</div>
+</div>
+    
+<script>
+document.getElementById("shaheds").oninput = t => document.getElementById("sVal").textContent = t.target.value, document.getElementById("kalibrs").oninput = t => document.getElementById("kVal").textContent = t.target.value;
+const celeStrategiczne = ["Port Wojenny Gdynia", "Rejon umocniony Hel / Port MW Hel", "Rafineria Gdańsk (Grupa Lotos)", "DCT Gdańsk", "Lotnisko im. Lecha Wałęsy Gdańsk", "Elektrociepłownia Gdańsk (EDF)", "34 BRT Władysławowo", "49. Baza Lotnictwa Wojskowego Pruszcz Gdański", "Port Północny Gdańsk"];
+
+let rumiaHP = 100;
+let rumiaZniszczona = false;
+    
+let zbiornikiHel = {
+        alive: !0
+    },
+    rtChwaszczyno = {
+        alive: !0
+    },
+    flota = [{
+        name: "ORP Ślązak",
+        wprowadzony: 2019,
+        alive: !0
+    }, {
+        name: "ORP Gen. K. Pułaski",
+        wprowadzony: 2e3,
+        alive: !0
+    }, {
+        name: "ORP Gen. T. Kościuszko",
+        wprowadzony: 2002,
+        alive: !0
+    }, {
+        name: "ORP Wicher (F601)",
+        wprowadzony: 2028,
+        alive: !0
+    }, {
+        name: "ORP Burza (F602)",
+        wprowadzony: 2030,
+        alive: !0
+    }, {
+        name: "ORP Huragan (F603)",
+        wprowadzony: 2032,
+        alive: !0
+    }, {
+        name: "ORP Kaszub (240)",
+        wprowadzony: 1987,
+        alive: !0
+    }],
+    f35Wejscie = 0,
+    laseryPelnaMoc = 0,
+    liczniki = {
+        pmwgdynia: 0,
+        pmwhel: 0,
+        rafineria: 0,
+        dct: 0,
+        lotnisko: 0,
+        elektro: 0,
+        rzucewo: 0,
+        pruszcz: 0,
+        portpolnocny: 0,
+        rumia: 0
+    },
+    stanLogistyki = {
+        patriot: {
+            gotowe: 0,
+            ladowanie: !1,
+            czasLadowania: 0
+        },
+        narew: {
+            gotowe: 0,
+            ladowanie: !1,
+            czasLadowania: 0
+        },
+        piorun: {
+            gotowe: 0,
+            ladowanie: !1,
+            czasLadowania: 0
+        }
+    },
+    zakloceniaEW = {
+        aktywne: !1,
+        moc: 0,
+        czasTrwania: 0
+    },
+    polskaEWaktywna = !1,
+    polskaEWczas = 0,
+    pogoda = {
+        widzialnosc: 1,
+        opady: 0,
+        wiatr: 0,
+        wlaczona: !0
+    },
+    czynnikLudzki = {
+        zmeczenie: 0,
+        bledy: 0,
+        morale: 1
+    },
+    
+    ostatniAtakEW = -999;
+
+function resetAllStates() {
+    zbiornikiHel.alive = !0;
+    rtChwaszczyno.alive = !0;
+    stanLogistyki.patriot.gotowe = 0;
+    stanLogistyki.patriot.ladowanie = !1;
+    stanLogistyki.patriot.czasLadowania = 0;
+    stanLogistyki.narew.gotowe = 0;
+    stanLogistyki.narew.ladowanie = !1;
+    stanLogistyki.narew.czasLadowania = 0;
+    stanLogistyki.piorun.gotowe = 0;
+    stanLogistyki.piorun.ladowanie = !1;
+    stanLogistyki.piorun.czasLadowania = 0;
+    zakloceniaEW.aktywne = !1;
+    zakloceniaEW.moc = 0;
+    zakloceniaEW.czasTrwania = 0;
+    polskaEWaktywna = !1;
+    polskaEWczas = 0;
+    czynnikLudzki.zmeczenie = 0;
+    czynnikLudzki.bledy = 0;
+    czynnikLudzki.morale = 1;
+    ostatniAtakEW = -999;
+    rumiaHP = 100;
+    rumiaZniszczona = false;
+    for (let t in liczniki) {
+        if (liczniki.hasOwnProperty(t)) {
+            liczniki[t] = 0;
+        }
+    }
+
+}
+
+function updateStatsDisplay(t, a, o, e) {
+    document.getElementById("intercepted").textContent = t;
+    document.getElementById("hits").textContent = a;
+    document.getElementById("sunk").textContent = o;
+    document.getElementById("zasobPatriot").textContent = `${Math.floor(stanLogistyki.patriot.gotowe)}/${e.patriot}`;
+    document.getElementById("zasobNarew").textContent = `${Math.floor(stanLogistyki.narew.gotowe)}/${e.narew}`;
+    document.getElementById("zasobPiorun").textContent = `${Math.floor(stanLogistyki.piorun.gotowe)}/${e.piorun}`;
+    let rElem = document.getElementById("rumia");
+    if (rumiaZniszczona) {
+        rElem.textContent = "ZNISZCZONA";
+        rElem.style.color = "red";
+        rElem.style.fontWeight = "bold";
+    } else if (rumiaHP < 100) {
+        rElem.textContent = `${liczniki.rumia} (${rumiaHP}%)`;
+        rElem.style.color = "orange";
+        rElem.style.fontWeight = "bold";
+    } else {
+        rElem.textContent = liczniki.rumia;
+        rElem.style.color = "";
+        rElem.style.fontWeight = "";
+    }
+    
+    for (let t in liczniki) {
+        if (liczniki.hasOwnProperty(t)) {
+        
+            if (t !== "rumia") {
+                document.getElementById(t).textContent = liczniki[t];
+            }
+        }
+    }
+}
+function initNoweMechaniki(t, a) {
+    a ? (pogoda.widzialnosc = .3 + .7 * Math.random(), pogoda.opady = .8 * Math.random(), pogoda.wiatr = 3 + 20 * Math.random(), pogoda.wlaczona = !0) : (pogoda.widzialnosc = 1, pogoda.opady = 0, pogoda.wiatr = 0, pogoda.wlaczona = !1), czynnikLudzki.zmeczenie = 0, czynnikLudzki.bledy = 0, czynnikLudzki.morale = .7 + .3 * Math.random()
+}
+
+function updateStanWczasie(t, a, o) {
+    czynnikLudzki.zmeczenie = Math.min(1, t / 180), czynnikLudzki.morale = Math.max(.3, 1 - .05 * a), aktualizujLogistyke(t, o), zakloceniaEW.aktywne && (zakloceniaEW.czasTrwania--, zakloceniaEW.czasTrwania <= 0 && (zakloceniaEW.aktywne = !1, zakloceniaEW.moc = 0)), polskaEWaktywna && (polskaEWczas--, polskaEWczas <= 0 && (polskaEWaktywna = !1))
+}
+
+function rozpocznijAtakEW(t, a, o) {
+    if (zakloceniaEW.aktywne || t - ostatniAtakEW < 10) return;
+    zakloceniaEW.aktywne = !0;
+    let e = .3 + .5 * Math.random();
+    zakloceniaEW.czasTrwania = 15 + Math.floor(25 * Math.random()), ostatniAtakEW = t;
+    const n = `[${String(Math.floor(t/10)).padStart(2,"0")}:${String(Math.floor(t%10*6)).padStart(2,"0")}]`;
+    if (polskaEWaktywna && polskaEWczas > 0 && Math.random() < .7) {
+        e *= .5, polskaEWczas -= 10;
+        const i = `<div class="ew-polska">${n} 🛡 POLSKA EW: Kontr-zakłócenia aktywne (redukcja rosyjskich zakłóceń o 50%)</div>`;
+        if (a.push({
+                minuta: t,
+                tekst: i
+            }), o && (o.innerHTML += i, o.scrollTop = o.scrollHeight), polskaEWczas <= 0) {
+            polskaEWaktywna = !1;
+            const e = `<div class="ew-polska">${n} ⚠ POLSKA EW: Zasoby wyczerpane</div>`;
+            a.push({
+                minuta: t,
+                tekst: e
+            }), o && (o.innerHTML += e, o.scrollTop = o.scrollHeight)
+        }
+    }
+    zakloceniaEW.moc = e;
+    const i = `<div class="ew-rosja">${n} ⚡ ROSYJSKI ATAK EW AKTYWNY! Zakłócenia GPS/radar: ${Math.round(100*zakloceniaEW.moc)}% przez ${zakloceniaEW.czasTrwania} min</div>`;
+    a.push({
+        minuta: t,
+        tekst: i
+    }), o && (o.innerHTML += i, o.scrollTop = o.scrollHeight)
+}
+
+function aktualizujLogistyke(t, a) {
+    const o = ["patriot", "narew", "piorun"];
+    for (let e = 0; e < o.length; e++) {
+        const n = o[e];
+        if (stanLogistyki[n].ladowanie && (stanLogistyki[n].czasLadowania--, stanLogistyki[n].czasLadowania <= 0)) {
+            stanLogistyki[n].ladowanie = !1;
+            const o = "patriot" === n ? 4 : "narew" === n ? 2 : 6;
+            stanLogistyki[n].gotowe += o;
+            const e = `<div style="color:#8f8;">${`[${String(Math.floor(t/10)).padStart(2,"0")}:${String(Math.floor(t%10*6)).padStart(2,"0")}]`} ✅ Przeładowano ${n.toUpperCase()}: +${o} pocisków</div>`;
+            a.push({
+                minuta: t,
+                tekst: e
+            })
+        }
+    }
+}
+
+function przeprowadzStrzal(t, a, o, e, n, i, r, s, l, d, c) {
+    if (Math.random() >= a) return "nie_zestrzelony";
+    const k = .1 * czynnikLudzki.zmeczenie + czynnikLudzki.bledy;
+    if (Math.random() < k) return d.push({
+        minuta: t,
+        tekst: `<div style="color:#f88;">${c}👮 BŁĄD ZAŁOGI: Nie strzelono do ${r} pomimo szansy!</div>`
+    }), czynnikLudzki.bledy += .05, "trafienie";
+    let u = "",
+        y = !1;
+    const z = document.getElementById("kontratakNATO").checked;
+    if (o && e >= 2027 ? (u = "Laser 100 kW", y = !0) : t >= n && e >= 2030 && Math.random() < .12 ? (u = "F-35A (Meteor)", y = !0) : stanLogistyki.patriot.gotowe > 0 && Math.random() < .15 ? (u = "Patriot PAC-3 MSE", stanLogistyki.patriot.gotowe--, y = !0, stanLogistyki.patriot.gotowe <= 2 && !stanLogistyki.patriot.ladowanie && t > 5 && (stanLogistyki.patriot.ladowanie = !0, stanLogistyki.patriot.czasLadowania = z ? 30 : 60, d.push({
+            minuta: t,
+            tekst: `<div style="color:#ff8;">${c} ⚠ Patriot - PRZEŁADOWANIE (${z?"30min":"60min"})</div>`
+        }))) : stanLogistyki.narew.gotowe > 0 ? (u = "Narew CAMM-ER", stanLogistyki.narew.gotowe--, y = !0, stanLogistyki.narew.gotowe <= 1 && !stanLogistyki.narew.ladowanie && t > 5 && (stanLogistyki.narew.ladowanie = !0, stanLogistyki.narew.czasLadowania = z ? 3 : 5, d.push({
+            minuta: t,
+            tekst: `<div style="color:#ff8;">${c} ⚠ Narew - PRZEŁADOWANIE (${z?"3min":"5min"})</div>`
+        }))) : stanLogistyki.piorun.gotowe > 0 && (u = "Pilica+/Piorun", stanLogistyki.piorun.gotowe--, y = !0, stanLogistyki.piorun.gotowe <= 3 && !stanLogistyki.piorun.ladowanie && t > 5 && (stanLogistyki.piorun.ladowanie = !0, stanLogistyki.piorun.czasLadowania = z ? 1 : 3, d.push({
+            minuta: t,
+            tekst: `<div style="color:#ff8;">${c} ⚠ Piorun - PRZEŁADOWANIE (${z?"1min":"3min"})</div>`
+        }))), !y) return d.push({
+        minuta: t,
+        tekst: `<div class="hit">${c} PRZEBICIE: ${i} – BRAK AMUNICJI!</div>`
+    }), "brak_amunicji";
+    const m = ["nad morzem (100+ km)", "sektor Hel-Rewa", "sektor Gdynia", "nad Zatoką", "ostatnie 10 km"],
+        p = m[Math.floor(Math.random() * m.length)];
+    return d.push({
+        minuta: t,
+        tekst: `<div class="intercept">${c} ZESTRZELONY ${r} – <span class="system">${u}</span> | ${p}</div>`
+    }), "zestrzelony"
+}
+
+function updateTargetCounter(t, a, o) {
+    t.includes("Port Wojenny Gdynia") && (liczniki.pmwgdynia++, a && (o["Port Wojenny Gdynia"] = (o["Port Wojenny Gdynia"] || 0) + 1)),
+        t.includes("Hel") && (liczniki.pmwhel++, a && (o["Rejon umocniony Hel / Port MW Hel"] = (o["Rejon umocniony Hel / Port MW Hel"] || 0) + 1)),
+        t.includes("Rafineria") && (liczniki.rafineria++, a && (o["Rafineria Gdańsk (Grupa Lotos)"] = (o["Rafineria Gdańsk (Grupa Lotos)"] || 0) + 1)),
+        t.includes("DCT") && (liczniki.dct++, a && (o["DCT Gdańsk"] = (o["DCT Gdańsk"] || 0) + 1)),
+        t.includes("Lotnisko") && (liczniki.lotnisko++, a && (o["Lotnisko im. Lecha Wałęsy Gdańsk"] = (o["Lotnisko im. Lecha Wałęsy Gdańsk"] || 0) + 1)),
+        t.includes("Elektrociepłownia") && (liczniki.elektro++, a && (o["Elektrociepłownia Gdańsk (EDF)"] = (o["Elektrociepłownia Gdańsk (EDF)"] || 0) + 1)),
+        "34 BRT Władysławowo" === t && (liczniki.rzucewo++, a && (o["34 BRT Władysławowo"] = (o["34 BRT Władysławowo"] || 0) + 1)),
+        t.includes("Pruszcz") && (liczniki.pruszcz++, a && (o["49. Baza Lotnictwa Wojskowego Pruszcz Gdański"] = (o["49. Baza Lotnictwa Wojskowego Pruszcz Gdański"] || 0) + 1)),
+        t.includes("Port Północny") && (liczniki.portpolnocny++, a && (o["Port Północny Gdańsk"] = (o["Port Północny Gdańsk"] || 0) + 1)),
+        (!rumiaZniszczona && currentYear >= 2028 && (t.includes("Rumia") || t.includes("Fabryka"))) && (liczniki.rumia++, a && (o["Fabryka Amunicji Rumia"] = (o["Fabryka Amunicji Rumia"] || 0) + 1));
+}
+
+function hitOkret(t, a, o, e, n) {
+    const i = flota.filter((t => t.alive && t.wprowadzony <= currentYear));
+    if (0 === i.length) return !1;
+    const r = i[Math.floor(Math.random() * i.length)];
+    let s;
+    return s = o ? .9 : e ? .4 : .15, Math.random() < s ? (r.alive = !1, n.push({
+        minuta: t,
+        tekst: `<div class="sunk">[${String(Math.floor(t/10)).padStart(2,"0")}:${String(Math.floor(t%10*6)).padStart(2,"0")}] 🚢 ZATOPIONY ${r.name} przez ${a}</div>`
+    }), !0) : (n.push({
+        minuta: t,
+        tekst: `<div class="damaged">[${String(Math.floor(t/10)).padStart(2,"0")}:${String(Math.floor(t%10*6)).padStart(2,"0")}] USZKODZONY ${r.name} przez ${a}</div>`
+    }), !1)
+}
+let currentYear = 2035;
+
+function startAttack() {
+    resetAllStates(), currentYear = parseInt(document.getElementById("year").value);
+    const t = currentYear,
+        a = parseInt(document.getElementById("shaheds").value),
+        o = parseInt(document.getElementById("kalibrs").value),
+        e = a + o,
+        n = document.getElementById("aiRosja").checked,
+        i = document.getElementById("kontratakNATO").checked,
+        r = document.getElementById("miotaczeKulek").checked,
+        s = document.getElementById("pogoda").checked,
+        l = document.getElementById("ewWalka").checked;
+    initNoweMechaniki(t, s);
+    let d = !1;
+    n && t >= 2027 && Math.random() < .4 && (d = !0);
+    for (let a = 0; a < flota.length; a++) flota[a].alive = flota[a].wprowadzony <= t;
+    f35Wejscie = t < 2027 ? 999 : t < 2035 ? 25 + Math.floor(16 * Math.random()) : 8 + Math.floor(10 * Math.random()), i && (f35Wejscie = Math.max(5, .5 * f35Wejscie)), laseryPelnaMoc = t >= 2035 ? 1 : t >= 2030 ? 3 : t >= 2028 ? 5 : t >= 2027 ? 1 : 999;
+    const c = {
+        patriot: 2025 === t ? 144 : 2027 === t ? 192 : 2030 === t ? 288 : 384,
+        narew: 2025 === t ? 90 : 2027 === t ? 375 : 2030 === t ? 828 : 1150,
+        piorun: 2025 === t ? 750 : 3e3
+    };
+    if (stanLogistyki.patriot.gotowe = Math.min(16, c.patriot), stanLogistyki.narew.gotowe = Math.min(8, c.narew), stanLogistyki.piorun.gotowe = Math.min(12, c.piorun), i) {
+        const a = t >= 2030 ? 2 : t >= 2027 ? 1.7 : 1.4;
+        stanLogistyki.patriot.gotowe = Math.min(.3 * c.patriot, stanLogistyki.patriot.gotowe * a), stanLogistyki.narew.gotowe = Math.min(.4 * c.narew, stanLogistyki.narew.gotowe * a), stanLogistyki.piorun.gotowe = Math.min(.5 * c.piorun, stanLogistyki.piorun.gotowe * a)
+    }
+    document.getElementById("total").textContent = e, document.getElementById("fuelhit").textContent = "całe", document.getElementById("fuelhit").style.color = "#0f0", document.getElementById("rtcn").textContent = "nieuszkodzony", document.getElementById("rtcn").style.color = "#0f0";
+    const k = document.getElementById("timeline");
+    if (k.innerHTML = `<div class="time">[00:00]</div> ATAK ROZPOCZĘTY Z KRÓLEWCA – ${a} Shahedów + ${o} rakiet | Rok ${t}<br>`, k.scrollTop = 0, i && (k.innerHTML += `<div style="color:#0af;font-weight:bold;background:#002;padding:5px;margin:5px 0;">[00:00] 🚀 <strong>SILNA ODPOWIEDŹ NATO AKTYWNA</strong>: F-35 reagują 2x szybciej, +${t>=2030?"100%":"50%"} amunicji, szybsze przeładowanie</div>`), k.innerHTML += s ? `<div class="weather">[00:00] WARUNKI POGODOWE: Widzialność ${Math.round(100*pogoda.widzialnosc)}%, Wiatr ${pogoda.wiatr.toFixed(1)} m/s, Opady ${Math.round(100*pogoda.opady)}%</div>` : '<div class="weather">[00:00] POGODA: Wyłączona (idealne warunki)</div>', l && t >= 2027 && Math.random() < .6) {
+        polskaEWaktywna = !0, polskaEWczas = 80 + Math.floor(80 * Math.random());
+        const t = `<div class="ew-polska">[00:00] 🛡 POLSKA EW: Systemy walki elektronicznej aktywne (do ${polskaEWczas} min)</div>`;
+        k.innerHTML += t
+    }
+    d && (k.innerHTML += '<div style="color:#f66;">[00:00] ROZPOZNANIE: Rosyjski okręt podwodny wykryty na podejściach do Zatoki</div>'), t >= 2028 && flota[3].alive && (k.innerHTML += '<div style="color:#0af;">[00:00] POLSKA MW: ORP Miecznik patroluje zachodnie wybrzeże - flota rosyjska w odległości</div>');
+    let u = [],
+        y = 0,
+        z = 0,
+        m = 0,
+        p = {},
+        w = 0,
+        g = 0;
+    const h = t >= 2035 ? 6 : t >= 2030 ? 4 : t >= 2027 ? 2 : 1;
+    let f = r && t >= 2027 ? t >= 2035 ? 150 : t >= 2030 ? 100 : 70 : 0,
+        M = 0;
+    const L = i ? 40 + Math.floor(81 * Math.random()) : 999;
+    let E = {
+            wyrzutnie: 0,
+            radary: 0
+        },
+        W = 0,
+        S = [];
+    if (n) {
+        const t = h;
+        for (let a = 0; a < t; a++) S.push(5 + Math.floor(55 * Math.random()));
+        S.sort(((t, a) => t - a))
+    }
+    f35Wejscie < 999 && u.push({
+        minuta: f35Wejscie,
+        tekst: `<div class="cap">[${String(Math.floor(f35Wejscie/10)).padStart(2,"0")}:${String(Math.floor(f35Wejscie%10*6)).padStart(2,"0")}] ► F-35A CAP</div>`
+    }), laseryPelnaMoc < 999 && u.push({
+        minuta: laseryPelnaMoc,
+        tekst: `<div class="cap">[${String(Math.floor(laseryPelnaMoc/10)).padStart(2,"0")}:${String(Math.floor(laseryPelnaMoc%10*6)).padStart(2,"0")}] ► LASERY PEŁNA MOC</div>`
+    }), i && u.push({
+        minuta: L,
+        tekst: `<div style="color:#0af;font-weight:bold;">[${String(Math.floor(L/10)).padStart(2,"0")}:${String(Math.floor(L%10*6)).padStart(2,"0")}] 🔥 KONTRATAK NATO! (niszczenie celów w Obwodzie Kaliningradzkim)</div>`
+    });
+    const v = [];
+    if (n && l && t >= 2027) {
+        const t = 2 + Math.floor(3 * Math.random());
+        for (let a = 0; a < t; a++) v.push(20 + Math.floor(40 * Math.random()))
+    }
+    for (let k = 0; k < e; k++) {
+        const e = k < o,
+            $ = !e && ("jet" === document.getElementById("droneType").value || "mixed" === document.getElementById("droneType").value && Math.random() < .47),
+            A = e ? "KALIBR" : $ ? "SHAHED-238" : "SHAHED-136";
+        let I = e ? 4 + Math.floor(14 * Math.random()) : 38 + Math.floor(34 * Math.random());
+        e && d && Math.random() < .3 && (I = 2 + Math.floor(8 * Math.random()), 0 === k && u.push({
+            minuta: 0,
+            tekst: '<div style="color:#f66;">[00:00] UWAGA: Część Kalibrów z okrętu podwodnego - czas lotu skrócony do 2-10 minut!</div>'
+        })), updateStanWczasie(I, z, u), l && v.includes(Math.floor(I)) && !zakloceniaEW.aktywne && rozpocznijAtakEW(I, u, document.getElementById("timeline"));
+        let P = !1;
+        if (n && S.length > 0 && g < S.length && I >= S[g] - 2 && I <= S[g] + 2 && (P = !0), P && g < h) {
+            const o = t >= 2035 ? .2 : t >= 2030 ? .15 : .1,
+                e = Math.max(30, Math.round(a * o));
+            for (let t = 0; t < e; t++) {
+                const a = I + 1 + Math.floor(7 * Math.random()),
+                    o = a + 2 + Math.floor(5 * Math.random());
+                if (Math.random() < .85) {
+                    y++;
+                    let a = "Piorun"; 
+let zestrzelonyMiotaczem = false;
+
+// 1. SPRÓBUJ MIOTACZ KULEK (jeśli włączony)
+if (r && M < f) {
+    const szansaMiotacz = t >= 2035 ? 0.4 : t >= 2030 ? 0.3 : 0.2;
+    if (Math.random() < szansaMiotacz) {
+        a = "Miotacz kulek";
+        M++;
+        zestrzelonyMiotaczem = true;
+    }
+}
+
+// 2. LASER (jeśli dostępny)
+if (!zestrzelonyMiotaczem && t >= 2027 && I >= laseryPelnaMoc) {
+    if (Math.random() < 0.9) {
+        a = "Laser 100 kW";
+        zestrzelonyMiotaczem = true;
+    }
+}
+
+// 3. F-35 (jeśli dostępne)
+if (!zestrzelonyMiotaczem && t >= 2027 && I >= f35Wejscie) {
+    if (Math.random() < 0.25) { // 25% szansy że F-35 się zainteresuje wabikiem
+        a = "F-35A (Meteor)";
+        zestrzelonyMiotaczem = true;
+    }
+}
+
+// 4. PATRIOT (jeśli ma amunicję)
+if (!zestrzelonyMiotaczem && stanLogistyki.patriot.gotowe > 0) {
+    a = "Patriot PAC-3";
+    stanLogistyki.patriot.gotowe--;
+    zestrzelonyMiotaczem = true;
+}
+
+// 5. NAREW (jeśli ma amunicję)
+if (!zestrzelonyMiotaczem && stanLogistyki.narew.gotowe > 0) {
+    a = "Narew CAMM-ER";
+    stanLogistyki.narew.gotowe--;
+    zestrzelonyMiotaczem = true;
+}
+
+// Jeśli nic nie zestrzeliło, wabik przeleci
+if (!zestrzelonyMiotaczem) {
+    // Wabik przechodzi - zmniejsz morale
+    czynnikLudzki.morale *= 0.99;
+    
+    y--; 
+}
+                    const e = `[${String(Math.floor(o/10)).padStart(2,"0")}:${String(Math.floor(o%10*6)).padStart(2,"0")}]`;
+                    u.push({
+                        minuta: o,
+                        tekst: `<div style="color:#ff0;">${e} ZESTRZELONY WABIK – <span class="system">${a}</span></div>`
+                    })
+                } else {
+                    z++;
+                    const t = `[${String(Math.floor(a/10)).padStart(2,"0")}:${String(Math.floor(a%10*6)).padStart(2,"0")}]`;
+                    u.push({
+                        minuta: a,
+                        tekst: `<div style="color:#f90;">${t} WABIK przeleciał</div>`
+                    })
+                }
+            }
+            const n = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+            u.push({
+                minuta: I,
+                tekst: `<div style="color:#ff0;font-weight:bold;">${n} [ROSYJSKA AI] WABIKI: ${e} fałszywych celów rozłożonych w czasie!</div>`
+            }), g++;
+            continue
+        }
+        let O = "";
+        if (n && (I >= w + 8 || 0 === k)) {
+            w = I;
+            const a = Object.entries(p).sort(((t, a) => a[1] - t[1])).map((t => t[0])),
+                o = 2025 === t ? .2 : 2027 === t ? .5 : 2030 === t ? .8 : .96;
+            if (a.length > 0 && Math.random() < o) {
+                O = a[0];
+                const t = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+                u.push({
+                    minuta: I,
+                    tekst: `<div style="color:#f90;">${t} [AI] Celowane uderzenie na ${O}</div>`
+                })
+            }
+        }
+        O || (O = celeStrategiczne[Math.floor(Math.random() * celeStrategiczne.length)]);
+        let T = n ? e ? .35 : $ ? .15 : .05 : 0,
+            C = Math.random() < T,
+            B = 2025 === t ? I < 20 ? .25 : .45 : 2027 === t ? I < 10 ? .65 : I < 25 ? .85 : .92 : 2028 === t ? I < 15 ? .8 : I < 28 ? .92 : .96 : 2030 === t ? I < laseryPelnaMoc ? .9 : I < f35Wejscie ? .96 : .98 : I < laseryPelnaMoc ? .95 : .99;
+        i && (B = Math.min(.99, 1.15 * B)), C && (B *= .7);
+        let R = 1;
+        s && (pogoda.widzialnosc < .3 && (R *= .6), pogoda.opady > .7 && (R *= .5), pogoda.wiatr > 15 && (R *= .8), pogoda.opady > .3 && I >= laseryPelnaMoc && (R *= .4));
+        let j = czynnikLudzki.morale * (1 - .5 * czynnikLudzki.zmeczenie);
+        j = Math.max(.3, j);
+        let N = 1;
+        zakloceniaEW.aktywne && (N = 1 - zakloceniaEW.moc * (I >= f35Wejscie && t >= 2030 ? .67 : 1)), B *= R * j * N;
+        let Z = 0;
+        if (i && I >= L) {
+            if (W++, W > 10 && Math.random() < .3) {
+                y++;
+                const t = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+                u.push({
+                    minuta: I,
+                    tekst: `<div style="color:#0af;">${t} ATAK ODWOŁANY – kontratak NATO niszczy wyrzutnie</div>`
+                });
+                continue
+            }
+            i ? t >= 2035 ? (E.wyrzutnie += .25, E.radary += .3) : t >= 2030 ? (E.wyrzutnie += .18, E.radary += .22) : t >= 2027 ? (E.wyrzutnie += .12, E.radary += .15) : (E.wyrzutnie += .08, E.radary += .1) : t >= 2035 ? (E.wyrzutnie += .12, E.radary += .18) : t >= 2030 ? (E.wyrzutnie += .08, E.radary += .12) : t >= 2027 && (E.wyrzutnie += .05, E.radary += .08), Z = .08 * E.wyrzutnie + .06 * E.radary, B += Z
+        }
+        if (B = Math.min(B, .99), r && M < f) {
+            if (!e && !$) {
+                let a = t >= 2035 ? .7 : t >= 2030 ? .55 : .4;
+                if (s && pogoda.wiatr > 10 && (a *= .7), Math.random() < a) {
+                    y++, M++;
+                    const t = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+                    u.push({
+                        minuta: I,
+                        tekst: `<div style="color:#0ff;font-weight:700;">${t} ROZERWANY ${A} – MIOTACZ KULEK WOLFRAMOWYCH (salwa ${M}/${f})</div>`
+                    });
+                    continue
+                }
+            }
+            if ($ && M < f - 10 && Math.random() < .25) {
+                y++, M += 2;
+                const t = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+                u.push({
+                    minuta: I,
+                    tekst: `<div style="color:#0af;font-weight:700;">${t} USZKODZONY ${A} – KULKI (mniejsza skuteczność vs odrzutowce)</div>`
+                });
+                continue
+            }
+        }
+        const K = I >= laseryPelnaMoc && Math.random() < .8,
+            b = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`,
+            H = przeprowadzStrzal(I, B, K, t, f35Wejscie, O, A, e, $, u, b);
+        if ("zestrzelony" === H) y++;
+        else if ("trafienie" === H) z++, updateTargetCounter(O, n, p), u.push({
+            minuta: I,
+            tekst: `<div class="hit">${b} TRAFIENIE: ${O} – ${A}</div>`
+        });
+        else if ("brak_amunicji" === H) z++, czynnikLudzki.morale *= .95, updateTargetCounter(O, n, p);
+        else if ("nie_zestrzelony" === H) {
+            if (zbiornikiHel.alive && Math.random() < .08) {
+                zbiornikiHel.alive = !1, document.getElementById("fuelhit").textContent = "ZNISZCZONE", document.getElementById("fuelhit").style.color = "#f33", u.push({
+                    minuta: I,
+                    tekst: `<div class="fuel">${b} ███ ZBIORNIKI PALIWA HEL ███ przez ${A}!</div>`
+                }), z++;
+                continue
+            }
+            if (rtChwaszczyno.alive && (e || Math.random() < .05)) {
+                rtChwaszczyno.alive = !1, document.getElementById("rtcn").textContent = "ZNISZCZONY", document.getElementById("rtcn").style.color = "#f33", u.push({
+                    minuta: I,
+                    tekst: `<div class="hit">${b} RTCN CHWASZCZYNO ZNISZCZONY – ${A}</div>`
+                }), z++;
+                continue
+            }
+            if (Math.random() < .3) {
+                hitOkret(I, A, e, $, u) && m++, z++;
+                continue
+            }
+            z++, updateTargetCounter(O, n, p), u.push({
+                minuta: I,
+                tekst: `<div class="hit">${b} TRAFIENIE: ${O} – ${A}</div>`
+            })
+        }
+        k % 50 == 0 && updateStatsDisplay(y, z, m, c)
+    
+    
+// --- LOGIKA FABRYKI RUMIA ---
+if (currentYear >= 2028 && !rumiaZniszczona && e) {
+    if (Math.random() < 0.15) { // 15% szansy na wysłanie Kalibra w stronę Rumi
+        let obronaRumia = 0.65; // Skuteczność systemu Wisła/Narew
+        
+        if (Math.random() > obronaRumia) {
+            liczniki.rumia++;
+            let dmg = Math.floor(Math.random() * 21) + 20; // 20-40% uszkodzeń
+            rumiaHP -= dmg;
+            if (rumiaHP < 0) rumiaHP = 0;
+            
+            // Poprawne formatowanie czasu
+            const czasStr = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+            
+            u.push({
+                minuta: I, 
+                tekst: `<div class="hit">${czasStr} 🏭 TRAFIENIE: Rakieta Kalibr uderza w fabrykę amunicji w Rumi!</div>`
+            });
+
+            if (rumiaHP <= 0) {
+                rumiaZniszczona = true;
+                u.push({
+                    minuta: I + 0.5, 
+                    tekst: `<div class="sunk">${czasStr} ☠🏭 ZNISZCZONA: Fabryka uzbrojenia w Rumi zniszczona!</div>`
+                });
+                // Skutek: obniżenie morale
+                czynnikLudzki.morale *= 0.9;
+            }
+        } else {
+            const czasStr = `[${String(Math.floor(I/10)).padStart(2,"0")}:${String(Math.floor(I%10*6)).padStart(2,"0")}]`;
+            u.push({
+                minuta: I,
+                tekst: `<div class="intercept">${czasStr} 🛡 OBRONA: System Wisła przechwycił rakietę celującą w Rumię.</div>`
+            });
+        }
+    }
+}
+}   
+    t >= 2028 && Math.random() < .2 && (u.push({
+        minuta: 45,
+        tekst: '<div style="color:#f90;">[45:00] INFORMACJA: Rosyjskie kutry rakietowe manewrują w pobliżu Kołobrzegu - odciągają uwagę</div>'
+    }), czynnikLudzki.morale *= .95);
+    const $ = document.getElementById("timeline");
+    u.sort(((t, a) => t.minuta - a.minuta));
+    const A = u.map((t => t.tekst)).join("");
+    $.innerHTML += A, updateStatsDisplay(y, z, m, c), document.getElementById("sunk").textContent = m, $.innerHTML += "<br><b>☠ ☠ ☠ KONIEC SYMULACJI ☠ ☠ ☠</b>";
+    const I = document.getElementById("endSound");
+    I && (I.currentTime = 0, I.play()), $.scrollTop = 0
+}
+document.getElementById("startBtn").addEventListener("click", (function() {
+    this.textContent = "CZEKAJ...", this.disabled = !0, setTimeout((() => {
+        startAttack(), this.textContent = "START SYMULACJI", this.disabled = !1
+    }), 100)
+})) 
+</script>
+    
+    
+<footer style="text-align:center;margin-top:5px;padding:20px;color:#666;font-size:.75em;border-top:1px solid #222;font-family:'Segoe UI',Roboto,sans-serif">
+<p style=letter-spacing:1px;color:#888;margin-bottom:10px>
+SYMULATOR ATAKU SATURACYJNEGO | Ver. 3.20260206
+</p>
+<p>
+© 2026 <b>Sebastian Czapliński</b> & AI (Grok 4, Gemini, Claude, DeepSeek)<br>
+<a href=mailto:balticcombat@gmail.com style=color:#555;text-decoration:none>✉ balticcombat@gmail.com</a>
+</p>
+<div style=margin-top:15px;opacity:.6>
+<a href=https://creativecommons.org/licenses/by/4.0/deed.pl target=_blank style=color:#666>Licencja CC-BY 4.0</a>
+</div>
+</footer>
+</body>
+</html>
