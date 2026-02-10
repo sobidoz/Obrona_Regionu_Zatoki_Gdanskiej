@@ -572,13 +572,13 @@ function przeprowadzStrzal(t, a, o, e, n, i, r, s, l, d, c) {
     let u = "",
         y = !1;
     const z = document.getElementById("kontratakNATO").checked;
-    if (o && e >= 2027 ? (u = "Laser 100 kW", y = !0) : t >= n && e >= 2030 && Math.random() < .12 ? (u = "F-35A (Meteor)", y = !0) : stanLogistyki.patriot.gotowe > 0 && Math.random() < .15 ? (u = "Patriot PAC-3 MSE", stanLogistyki.patriot.gotowe--, y = !0, stanLogistyki.patriot.gotowe <= 2 && !stanLogistyki.patriot.ladowanie && t > 5 && (stanLogistyki.patriot.ladowanie = !0, stanLogistyki.patriot.czasLadowania = z ? 30 : 60, d.push({
+    if (o && e >= 2027 ? (u = "Laser 100 kW", y = !0) : t >= n && e >= 2030 && Math.random() < .12 ? (u = "F-35A (Meteor)", y = !0) : stanLogistyki.patriot.gotowe >=1 && Math.random() < .15 ? (u = "Patriot PAC-3 MSE", stanLogistyki.patriot.gotowe--, y = !0, stanLogistyki.patriot.gotowe <= 2 && !stanLogistyki.patriot.ladowanie && t > 5 && (stanLogistyki.patriot.ladowanie = !0, stanLogistyki.patriot.czasLadowania = z ? 30 : 60, d.push({
             minuta: t,
             tekst: `<div style="color:#ff8;">${c} ⚠ Patriot - PRZEŁADOWANIE (${z?"30min":"60min"})</div>`
-        }))) : stanLogistyki.narew.gotowe > 0 ? (u = "Narew CAMM-ER", stanLogistyki.narew.gotowe--, y = !0, stanLogistyki.narew.gotowe <= 1 && !stanLogistyki.narew.ladowanie && t > 5 && (stanLogistyki.narew.ladowanie = !0, stanLogistyki.narew.czasLadowania = z ? 3 : 5, d.push({
+        }))) : stanLogistyki.narew.gotowe >= 1 ? (u = "Narew CAMM-ER", stanLogistyki.narew.gotowe--, y = !0, stanLogistyki.narew.gotowe <= 1 && !stanLogistyki.narew.ladowanie && t > 5 && (stanLogistyki.narew.ladowanie = !0, stanLogistyki.narew.czasLadowania = z ? 3 : 5, d.push({
             minuta: t,
             tekst: `<div style="color:#ff8;">${c} ⚠ Narew - PRZEŁADOWANIE (${z?"3min":"5min"})</div>`
-        }))) : stanLogistyki.piorun.gotowe > 0 && (u = "Pilica+/Piorun", stanLogistyki.piorun.gotowe--, y = !0, stanLogistyki.piorun.gotowe <= 3 && !stanLogistyki.piorun.ladowanie && t > 5 && (stanLogistyki.piorun.ladowanie = !0, stanLogistyki.piorun.czasLadowania = z ? 1 : 3, d.push({
+        }))) : stanLogistyki.piorun.gotowe >= 1 && (u = "Pilica+/Piorun", stanLogistyki.piorun.gotowe--, y = !0, stanLogistyki.piorun.gotowe <= 3 && !stanLogistyki.piorun.ladowanie && t > 5 && (stanLogistyki.piorun.ladowanie = !0, stanLogistyki.piorun.czasLadowania = z ? 1 : 3, d.push({
             minuta: t,
             tekst: `<div style="color:#ff8;">${c} ⚠ Piorun - PRZEŁADOWANIE (${z?"1min":"3min"})</div>`
         }))), !y) return d.push({
@@ -739,14 +739,14 @@ if (!zestrzelonyMiotaczem && t >= 2027 && I >= f35Wejscie) {
 }
 
 // 4. PATRIOT (jeśli ma amunicję)
-if (!zestrzelonyMiotaczem && stanLogistyki.patriot.gotowe > 0) {
+if (!zestrzelonyMiotaczem && stanLogistyki.patriot.gotowe >= 1) {
     a = "Patriot PAC-3";
     stanLogistyki.patriot.gotowe--;
     zestrzelonyMiotaczem = true;
 }
 
 // 5. NAREW (jeśli ma amunicję)
-if (!zestrzelonyMiotaczem && stanLogistyki.narew.gotowe > 0) {
+if (!zestrzelonyMiotaczem && stanLogistyki.narew.gotowe >= 1) {
     a = "Narew CAMM-ER";
     stanLogistyki.narew.gotowe--;
     zestrzelonyMiotaczem = true;
@@ -947,4 +947,5 @@ SYMULATOR ATAKU SATURACYJNEGO | Ver. 3.20260206
 </div>
 </footer>
 </body>
+
 </html>
